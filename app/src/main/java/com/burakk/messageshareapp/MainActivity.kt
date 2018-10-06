@@ -1,5 +1,6 @@
 package com.burakk.messageshareapp
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,9 +14,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        btnToast.setOnClickListener {
-            Log.i("MainActivity", "Toast button was clicked.")
-            Toast.makeText(this,"Toast button was clicked.", Toast.LENGTH_SHORT).show()
+        btnSend.setOnClickListener {
+            //Log.i("MainActivity", "Toast button was clicked.")
+            val msg: String = etUserMessage.text.toString()
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("user_message", msg)//for sending message to second activity.
+            startActivity(intent)
+        }
+        btnShareToOtherApps.setOnClickListener {
+            val msg: String = etUserMessage.text.toString()
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT,msg)
+            intent.type = "text/plain"
+            startActivity(Intent.createChooser(intent,"Please select app: "))
         }
     }
 }
