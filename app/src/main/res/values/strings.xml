@@ -3,4 +3,5 @@
     <string name="etUserMessage">Send your Message</string>
     <string name="btnSend">SEND DATA</string>
     <string name="btnShareToOtherApps">SHARE TO OTHER APPS</string>
+    <string name="btnRecyclerView">RECYCLER VIEW</string>
 </resources>
