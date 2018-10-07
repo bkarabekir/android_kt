@@ -2,6 +2,8 @@
     <string name="app_name">MessageShareApp</string>
     <string name="etUserMessage">Send your Message</string>
     <string name="btnSend">SEND DATA</string>
+    <string name="selectAppMessage">Please select app: </string>
     <string name="btnShareToOtherApps">SHARE TO OTHER APPS</string>
     <string name="btnRecyclerView">RECYCLER VIEW</string>
+    <string name="listItemTitle">TITLE</string>
 </resources>

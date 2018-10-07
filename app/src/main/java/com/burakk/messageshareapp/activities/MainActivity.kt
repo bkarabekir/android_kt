@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         val TAG: String = MainActivity::class.java.simpleName //  it returns the name of the activity "MainActivity"
 
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,9 +36,10 @@ class MainActivity : AppCompatActivity() {
             val msg: String = etUserMessage.text.toString()
             val intent = Intent()
             intent.action = Intent.ACTION_SEND
-            intent.putExtra(Intent.EXTRA_TEXT,msg)
+            intent.putExtra(Intent.EXTRA_TEXT, msg)
             intent.type = "text/plain"
-            startActivity(Intent.createChooser(intent,"Please select app: "))
+            startActivity(Intent.createChooser(intent,
+                    getString(R.string.selectAppMessage)))//getString() benden bro :D
         }
         btnRecyclerView.setOnClickListener {
             val intent = Intent(this, HobbiesActivity::class.java)

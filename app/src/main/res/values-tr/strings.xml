@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btnSend">GÖNDER</string>
+    <string name="app_name">MessageShareApp</string>
+    <string name="etUserMessage">Mesajını Gönder</string>
+    <string name="btnShareToOtherApps">Başka Uygulamada Paylaş</string>
+    <string name="btnRecyclerView">RECYCLER VIEW</string>
+    <string name="selectAppMessage">Lütfen Uygulamayı Seçin: </string>
+    <string name="listItemTitle">BAŞLIK</string>
+
+
+</resources>
