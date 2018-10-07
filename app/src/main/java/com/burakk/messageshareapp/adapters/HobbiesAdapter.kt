@@ -1,4 +1,4 @@
-package com.burakk.messageshareapp
+package com.burakk.messageshareapp.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -7,9 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.burakk.messageshareapp.models.Hobby
+import com.burakk.messageshareapp.R
+import com.burakk.messageshareapp.showToast
 import kotlinx.android.synthetic.main.list_item.view.*
 
-class HobbiesAdapter(val context: Context, val hobbies: List<Hobby>) : RecyclerView.Adapter<HobbiesAdapter.MyViewHolder>() {
+class HobbiesAdapter(val context: Context, private val hobbies: List<Hobby>) : RecyclerView.Adapter<HobbiesAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
         return MyViewHolder(view)
@@ -31,7 +34,8 @@ class HobbiesAdapter(val context: Context, val hobbies: List<Hobby>) : RecyclerV
 
         init {
             itemView.setOnClickListener {
-                Toast.makeText(context, currentHobby!!.title + "Clicked!  ", Toast.LENGTH_SHORT).show() //gardas show() yazmayi unutma yoksa Toast() kiziyor.
+                context.showToast(currentHobby!!.title + "Clicked!  ")
+
             }
             itemView.imgShare.setOnClickListener {
                 val msg: String = "My hobbies is: " + currentHobby!!.title
@@ -44,7 +48,10 @@ class HobbiesAdapter(val context: Context, val hobbies: List<Hobby>) : RecyclerV
         }
 
         fun setData(hobby: Hobby?, pos: Int) {
-            itemView.txvTitle.text = hobby!!.title
+            hobby?.let {
+                itemView.txvTitle.text = hobby.title
+            }
+            //itemView.txvTitle.text = hobby!!.title
             this.currentHobby = hobby
             this.currentPosition = pos
         }

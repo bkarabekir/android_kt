@@ -1,4 +1,4 @@
-package com.burakk.messageshareapp
+package com.burakk.messageshareapp.models
 
 data class Hobby(var title: String)
 
